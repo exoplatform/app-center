@@ -19,24 +19,17 @@ import org.exoplatform.services.organization.OrganizationService;
  */
 public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
 
-  private OrganizationService organizationService;
-
-  public ApplicationDAO(OrganizationService organizationService) {
-    this.organizationService = organizationService;
-  }
-
   public List<Application> getAuthorizedApplications(String userName,
+                                                     Collection<Group> groups,
                                                      String keyword) {
     try {
-      Collection<Group> groups = organizationService.getGroupHandler()
-                                                    .findGroupsOfUser(userName);
       List<Application> results = new ArrayList<Application>();
       groups.forEach(group -> {
         results.addAll((List<Application>) getEntityManager().createNamedQuery("ApplicationEntity.getAuthorizedApplications")
                                                              .setParameter("permissionPattern1",
-                                                                           "%" + group.getGroupName())
+                                                                           "%:/" + group.getGroupName())
                                                              .setParameter("permissionPattern2",
-                                                                           "%" + group.getGroupName() + ",%")
+                                                                           "%:/" + group.getGroupName() + ",%")
                                                              .getResultList());
       });
       return results.stream()
@@ -51,17 +44,15 @@ public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
     }
   }
 
-  public List<Application> getDefaultApplications(String userName) {
+  public List<Application> getDefaultApplications(String userName, Collection<Group> groups) {
     try {
-      Collection<Group> groups = organizationService.getGroupHandler()
-                                                    .findGroupsOfUser(userName);
       List<Application> results = new ArrayList<Application>();
       groups.forEach(group -> {
         results.addAll((List<Application>) getEntityManager().createNamedQuery("ApplicationEntity.getDefaultApplications")
                                                              .setParameter("permissionPattern1",
-                                                                           "%" + group.getGroupName())
+                                                                           "%:/" + group.getGroupName())
                                                              .setParameter("permissionPattern2",
-                                                                           "%" + group.getGroupName() + ",%")
+                                                                           "%:/" + group.getGroupName() + ",%")
                                                              .getResultList());
       });
       return results.stream().distinct().collect(Collectors.toList());
