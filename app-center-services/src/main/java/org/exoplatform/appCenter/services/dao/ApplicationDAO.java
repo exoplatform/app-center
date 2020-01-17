@@ -12,7 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.exoplatform.appCenter.services.entity.jpa.Application;
 import org.exoplatform.commons.persistence.impl.GenericDAOJPAImpl;
 import org.exoplatform.services.organization.Group;
-import org.exoplatform.services.organization.OrganizationService;
 
 /**
  * @author Ayoub Zayati
@@ -27,9 +26,9 @@ public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
       groups.forEach(group -> {
         results.addAll((List<Application>) getEntityManager().createNamedQuery("ApplicationEntity.getAuthorizedApplications")
                                                              .setParameter("permissionPattern1",
-                                                                           "%/" + group.getGroupName())
+                                                                           "%:" + group.getId())
                                                              .setParameter("permissionPattern2",
-                                                                           "%/" + group.getGroupName() + ",%")
+                                                                           "%:" + group.getId() + ",%")
                                                              .getResultList());
       });
       return results.stream()
@@ -50,9 +49,9 @@ public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
       groups.forEach(group -> {
         results.addAll((List<Application>) getEntityManager().createNamedQuery("ApplicationEntity.getDefaultApplications")
                                                              .setParameter("permissionPattern1",
-                                                                           "%/" + group.getGroupName())
+                                                                           "%:" + group.getId())
                                                              .setParameter("permissionPattern2",
-                                                                           "%/" + group.getGroupName() + ",%")
+                                                                           "%:" + group.getId() + ",%")
                                                              .getResultList());
       });
       return results.stream().distinct().collect(Collectors.toList());
