@@ -27,9 +27,9 @@ public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
       groups.forEach(group -> {
         results.addAll((List<Application>) getEntityManager().createNamedQuery("ApplicationEntity.getAuthorizedApplications")
                                                              .setParameter("permissionPattern1",
-                                                                           "%:/" + group.getGroupName())
+                                                                           "%/" + group.getGroupName())
                                                              .setParameter("permissionPattern2",
-                                                                           "%:/" + group.getGroupName() + ",%")
+                                                                           "%/" + group.getGroupName() + ",%")
                                                              .getResultList());
       });
       return results.stream()
@@ -50,9 +50,9 @@ public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
       groups.forEach(group -> {
         results.addAll((List<Application>) getEntityManager().createNamedQuery("ApplicationEntity.getDefaultApplications")
                                                              .setParameter("permissionPattern1",
-                                                                           "%:/" + group.getGroupName())
+                                                                           "%/" + group.getGroupName())
                                                              .setParameter("permissionPattern2",
-                                                                           "%:/" + group.getGroupName() + ",%")
+                                                                           "%/" + group.getGroupName() + ",%")
                                                              .getResultList());
       });
       return results.stream().distinct().collect(Collectors.toList());
