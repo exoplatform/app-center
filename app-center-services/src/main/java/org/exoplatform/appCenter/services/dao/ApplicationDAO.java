@@ -33,10 +33,10 @@ public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
       List<Application> results = new ArrayList<Application>();
       groups.forEach(group -> {
         results.addAll((List<Application>) getEntityManager().createNamedQuery("ApplicationEntity.getAuthorizedApplications")
-                                                             .setParameter("permission",
-                                                                           "%"
-                                                                               + group.getGroupName()
-                                                                               + "%")
+                                                             .setParameter("permissionPattern1",
+                                                                           "%" + group.getGroupName())
+                                                             .setParameter("permissionPattern2",
+                                                                           "%" + group.getGroupName() + ",%")
                                                              .getResultList());
       });
       return results.stream()
@@ -58,10 +58,10 @@ public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
       List<Application> results = new ArrayList<Application>();
       groups.forEach(group -> {
         results.addAll((List<Application>) getEntityManager().createNamedQuery("ApplicationEntity.getDefaultApplications")
-                                                             .setParameter("permission",
-                                                                           "%"
-                                                                               + group.getGroupName()
-                                                                               + "%")
+                                                             .setParameter("permissionPattern1",
+                                                                           "%" + group.getGroupName())
+                                                             .setParameter("permissionPattern2",
+                                                                           "%" + group.getGroupName() + ",%")
                                                              .getResultList());
       });
       return results.stream().distinct().collect(Collectors.toList());
@@ -70,9 +70,9 @@ public class ApplicationDAO extends GenericDAOJPAImpl<Application, Long> {
     }
   }
 
-  public Application getAppByNameOrTitle(String title, String url) {
+  public Application getAppByTitleOrUrl(String title, String url) {
     try {
-      return (Application) getEntityManager().createNamedQuery("ApplicationEntity.getAppByNameOrTitle")
+      return (Application) getEntityManager().createNamedQuery("ApplicationEntity.getAppByTitleOrUrl")
                                              .setParameter("title", title)
                                              .setParameter("url", url)
                                              .getSingleResult();

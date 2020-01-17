@@ -97,7 +97,7 @@ public class ApplicationsRestService implements ResourceContainer {
   @RolesAllowed("administrators")
   public Response addApplication(@Context UriInfo uriInfo,
                                  ApplicationForm applicationForm) throws Exception {
-    Application existingApplication = applicationDAO.getAppByNameOrTitle(applicationForm.getTitle(),
+    Application existingApplication = applicationDAO.getAppByTitleOrUrl(applicationForm.getTitle(),
                                                                          applicationForm.getUrl());
     if (existingApplication != null) {
       return existingApplication.getTitle().equals(applicationForm.getTitle()) ? Util.getResponse(applicationForm.getTitle()
