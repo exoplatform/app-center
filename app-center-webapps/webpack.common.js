@@ -12,7 +12,7 @@ module.exports = {
         adminSetup: "./src/main/webapp/vue-apps/adminSetup/adminSetup.js",
         userSetup: "./src/main/webapp/vue-apps/userSetup/userSetup.js",
         myApplications: "./src/main/webapp/vue-apps/myApplications/myApplications.js",
-        appLauncher: "./src/main/webapp/vue-apps/appLauncher/main.js"
+        appLauncher: "./src/main/webapp/vue-apps/appLauncher/appLauncher.js"
     },
     output: {
         filename: 'javascript/vue/[name].bundle.js',

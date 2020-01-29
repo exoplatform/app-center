@@ -36,6 +36,14 @@
                    class="my-0"/>
 
                 <v-row class="mx-0 px-3">
+                    <div class="appLauncherList">
+                        <div class="appLauncherItem" v-for="(application, index) in applicationList">
+                            <a target="_blank" :href="application.appUrl">
+                                <img class="appLauncherImage" v-if="application.appImageFileBody != undefined && application.appImageFileBody != ''" :src="application.appImageFileBody"/>
+                                <span class="appLauncherTitle">{{ application.appTitle }}</span>
+                            </a>
+                        </div>
+                    </div>
                 </v-row>
             </v-navigation-drawer>
          </v-layout>
@@ -46,12 +54,30 @@
     export default {
         data () {
             return {
-                appLauncherDrawer : null
+                appLauncherDrawer : null,
+                applicationList: []
             }
+        },
+        created() {
+            this.getNotifications();
         },
         methods : {
             toggleDrawer() {
                 this.appLauncherDrawer = !this.appLauncherDrawer;
+            },
+            getNotifications() {
+                return fetch('/rest/appCenter/applications/getAuthorizedApplicationsList?offset=0&limit=9&keyword=', {
+                    credentials: 'include',
+                    method: 'GET',
+                }).then((resp) => {
+                    if(resp && resp.ok) {
+                        return resp.json();
+                    } else {
+                        throw new Error('Error getting applications list');
+                    }
+                }).then(data => {
+                    this.applicationList = data.applications;
+                })
             }
         }
     }

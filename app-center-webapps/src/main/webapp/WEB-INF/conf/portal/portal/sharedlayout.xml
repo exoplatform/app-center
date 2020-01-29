@@ -65,11 +65,11 @@
                     <show-info-bar>false</show-info-bar>
                 </portlet-application>
             </container>
-            <container id="ApplicationLauncherPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <container id="AppCenterAppLauncherPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <portlet-application>
                     <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>appCenterLauncher</portlet-ref>
+                        <application-ref>app-center</application-ref>
+                        <portlet-ref>AppCenterAppLauncherPortlet</portlet-ref>
                     </portlet>
                     <access-permissions>*:/platform/users</access-permissions>
                     <show-info-bar>false</show-info-bar>

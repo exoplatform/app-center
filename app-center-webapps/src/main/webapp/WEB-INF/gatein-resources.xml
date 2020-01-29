@@ -44,10 +44,10 @@
   </portlet>
 
   <portlet>
-    <name>appCenterLauncher</name>
+    <name>AppCenterAppLauncherPortlet</name>
     <module>
       <depends>
-        <module>appCenterLauncherBundle</module>
+        <module>appLauncherBundle</module>
       </depends>
     </module>
   </portlet>
@@ -102,7 +102,7 @@
   </module>
 
   <module>
-    <name>appCenterLauncherBundle</name>
+    <name>appLauncherBundle</name>
     <script>
       <minify>false</minify>
       <path>/javascript/vue/appLauncher.bundle.js</path>

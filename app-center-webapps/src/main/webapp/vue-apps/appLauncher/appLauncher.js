@@ -1,4 +1,4 @@
-import launcherApp from './components/appLauncher.vue';
+import AppLauncherApp from './components/appLauncher.vue';
 
 Vue.use(Vuetify);
 
@@ -18,9 +18,9 @@ export function init() {
         .then(i18n => {
             // init Vue app when locale ressources are ready
             new Vue({
-                render: h => h(launcherApp),
+                render: h => h(AppLauncherApp),
                 i18n,
                 vuetify,
-            }).$mount('#app-center-launcher');
+            }).$mount('#appLauncher');
         });
 }
