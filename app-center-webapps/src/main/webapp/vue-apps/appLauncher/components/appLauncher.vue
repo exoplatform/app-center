@@ -65,7 +65,7 @@
             toggleDrawer() {
                 this.appLauncherDrawer = !this.appLauncherDrawer;
             },
-            getNotifications() {
+            getFavoriteApplicationsList() {
                 return fetch('/rest/appCenter/applications/getFavoriteApplicationsList', {
                     method: 'GET',
                 }).then((resp) => {
