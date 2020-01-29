@@ -55,28 +55,27 @@
         data () {
             return {
                 appLauncherDrawer : null,
-                applicationList: []
+                favoriteApplicationsList: []
             }
         },
         created() {
-            this.getNotifications();
+            this.getFavoriteApplicationsList();
         },
         methods : {
             toggleDrawer() {
                 this.appLauncherDrawer = !this.appLauncherDrawer;
             },
             getNotifications() {
-                return fetch('/rest/appCenter/applications/getAuthorizedApplicationsList?offset=0&limit=9&keyword=', {
-                    credentials: 'include',
+                return fetch('/rest/appCenter/applications/getFavoriteApplicationsList', {
                     method: 'GET',
                 }).then((resp) => {
                     if(resp && resp.ok) {
                         return resp.json();
                     } else {
-                        throw new Error('Error getting applications list');
+                        throw new Error('Error getting favorite applications list');
                     }
                 }).then(data => {
-                    this.applicationList = data.applications;
+                    this.favoriteApplicationsList = data.applications;
                 })
             }
         }
