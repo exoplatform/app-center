@@ -37,7 +37,7 @@
 
                 <v-row class="mx-0 px-3">
                     <div class="appLauncherList">
-                        <div class="appLauncherItem" v-for="(application, index) in applicationList">
+                        <div class="appLauncherItem" v-for="(application, index) in favoriteApplicationsList">
                             <a target="_blank" :href="application.appUrl">
                                 <img class="appLauncherImage" v-if="application.appImageFileBody != undefined && application.appImageFileBody != ''" :src="application.appImageFileBody"/>
                                 <span class="appLauncherTitle">{{ application.appTitle }}</span>
