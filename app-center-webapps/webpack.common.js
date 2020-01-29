@@ -11,10 +11,11 @@ module.exports = {
     entry: {
         adminSetup: "./src/main/webapp/vue-apps/adminSetup/adminSetup.js",
         userSetup: "./src/main/webapp/vue-apps/userSetup/userSetup.js",
-        myApplications: "./src/main/webapp/vue-apps/myApplications/myApplications.js"
+        myApplications: "./src/main/webapp/vue-apps/myApplications/myApplications.js",
+        appLauncher: "./src/main/webapp/vue-apps/appLauncher/main.js"
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: 'javascript/vue/[name].bundle.js',
         libraryTarget: 'amd'
     },
 

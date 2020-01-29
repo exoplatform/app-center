@@ -74,4 +74,26 @@
     <portlet-preferences>
     </portlet-preferences>
   </portlet>
+  <!-- ================================================================ -->
+  <!-- = App Launcher My Applications Portlet = -->
+  <!-- ================================================================== -->
+  <portlet>
+    <portlet-name>appCenterLauncher</portlet-name>
+    <display-name xml:lang="EN">App center my applications portlet</display-name>
+    <portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+    <init-param>
+      <name>portlet-view-dispatched-file-path</name>
+      <value>/html/administration.html</value>
+    </init-param>
+    <supports>
+      <mime-type>text/html</mime-type>
+    </supports>
+    <supported-locale>fr</supported-locale>
+    <portlet-info>
+      <title>App center my applications launcher portlet</title>
+      <keywords>App center Launcher portlets</keywords>
+    </portlet-info>
+    <portlet-preferences>
+    </portlet-preferences>
+  </portlet>
 </portlet-app>

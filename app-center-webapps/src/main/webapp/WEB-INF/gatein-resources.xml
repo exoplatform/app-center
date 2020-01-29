@@ -43,6 +43,15 @@
     </module>
   </portlet>
 
+  <portlet>
+    <name>appCenterLauncher</name>
+    <module>
+      <depends>
+        <module>appCenterLauncherBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
   <module>
     <name>adminSetupPortletBundle</name>
     <script>
@@ -91,4 +100,22 @@
       <module>eXoVueI18n</module>
     </depends>
   </module>
+
+  <module>
+    <name>appCenterLauncherBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/javascript/vue/appLauncher.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
 </gatein-resources>
