@@ -19,7 +19,7 @@
                     right
                     absolute
                     temporary
-                    width="420"
+                    width="380"
                     class="appCenterDrawer">
                 <v-row class="mx-0 px-3">
                     <v-list-item class="appLauncherDrawerHeader">
@@ -33,17 +33,28 @@
                 </v-row>
                 <v-divider
                    :inset="inset"
-                   class="my-0"/>
+                   class="my-0 appHeaderBorder"/>
 
                 <v-row class="mx-0 px-3">
                     <div class="appLauncherList">
                         <div class="appLauncherItem" v-for="(application, index) in favoriteApplicationsList">
-                            <a target="_blank" :href="application.appUrl">
+                            <a v-if="index < 9 " target="_blank" :href="application.appUrl">
                                 <img class="appLauncherImage" v-if="application.appImageFileBody != undefined && application.appImageFileBody != ''" :src="application.appImageFileBody"/>
                                 <span class="appLauncherTitle">{{ application.appTitle }}</span>
                             </a>
                         </div>
                     </div>
+                </v-row>
+                <v-row class="seeAllApplications mx-0">
+                    <v-card
+                            flat
+                            tile
+                            class="d-flex flex justify-center mx-2">
+                        <a
+                                class="primary--text seeAllApplicationsBtn"
+                                href="/portal/intranet/appCenterUserSetup"
+                                >View all applications</a>
+                    </v-card>
                 </v-row>
             </v-navigation-drawer>
          </v-layout>
