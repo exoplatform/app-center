@@ -122,7 +122,7 @@
     <name>appCenterBundle</name>
     <script>
       <minify>false</minify>
-      <path>/javascript/App-center.js</path>
+      <path>/javascript/appCenter.js</path>
     </script>
     <depends>
       <module>jquery</module>

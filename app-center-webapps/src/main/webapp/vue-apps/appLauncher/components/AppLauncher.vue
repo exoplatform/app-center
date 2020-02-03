@@ -91,7 +91,7 @@
                 }).then(data => {
                     this.favoriteApplicationsList = data.applications;
                 })
-            },
+            }
         }
     }
 </script>
