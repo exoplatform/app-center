@@ -38,7 +38,7 @@
                 <v-row class="mx-0 px-3">
                     <div class="appLauncherList">
                         <div class="appLauncherItem" v-for="(application, index) in favoriteApplicationsList">
-                            <a v-if="index < 9 " target="_blank" :href="application.appUrl">
+                            <a target="_blank" :href="application.appUrl">
                                 <img class="appLauncherImage" v-if="application.appImageFileBody != undefined && application.appImageFileBody != ''" :src="application.appImageFileBody"/>
                                 <span class="appLauncherTitle">{{ application.appTitle }}</span>
                             </a>
@@ -53,7 +53,7 @@
                         <a
                                 class="primary--text seeAllApplicationsBtn"
                                 href="/portal/intranet/appCenterUserSetup"
-                                >View all applications</a>
+                                >{{ $t('appCenter.appLauncher.drawer.viewAll') }}</a>
                     </v-card>
                 </v-row>
             </v-navigation-drawer>
