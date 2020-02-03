@@ -71,6 +71,9 @@
         },
         created() {
             this.getFavoriteApplicationsList();
+            window.require(['SHARED/appCenterBundle'], function (appCenterBundle) {
+                appCenterBundle.init();
+            });
         },
         methods : {
             toggleDrawer() {
@@ -88,7 +91,7 @@
                 }).then(data => {
                     this.favoriteApplicationsList = data.applications;
                 })
-            }
+            },
         }
     }
 </script>

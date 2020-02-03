@@ -868,7 +868,7 @@
 }
 
 .appLauncherItem {
-  flex: 1 1 33%;
+  flex: 0 1 33%;
 }
 
 .appLauncherItem a {
@@ -893,13 +893,6 @@
   font-size: 16px;
 }
 
-.seeAllApplications {
-  border: 1px solid #1976d27a!important;
-  padding: 8px 15px;
-  border-radius: 3px!important;
-  cursor: pointer!important;
-  letter-spacing: .5px;
-}
 .appHeaderBorder {
   border-color: #f0f4fe!important;
 }
@@ -908,6 +901,24 @@
   box-shadow: -3px 3px 6px 0px #ececec;
   transition: all .3s;
 }
+
+.seeAllApplicationsBtn {
+  border: 1px solid #1976d27a!important;
+  padding: 8px 15px;
+  border-radius: 3px!important;
+  cursor: pointer!important;
+  letter-spacing: .5px;
+}
+
 .seeAllApplicationsBtn:hover {
   background-color: #1976d21c!important;
+}
+
+.seeAllApplications {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.open-app-drawer {
+  overflow: hidden;
 }
