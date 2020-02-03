@@ -325,7 +325,6 @@
 		        	headers: {
 		        		'content-Type': 'application/json'
 					},
-					credentials: 'include',
 					method: 'POST',
 					body: JSON.stringify(this.formArray)
 				}).then(response => {
