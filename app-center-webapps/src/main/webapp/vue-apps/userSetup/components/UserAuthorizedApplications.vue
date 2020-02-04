@@ -49,14 +49,14 @@
     	components: { dot },
     	data(){
         	return{
-        		authorizedApplicationsList: [],
-        		showPaginator: false,
-        		currentPage: 1,
-				searchText: '',
-				searchApp: '',
-				searchDelay: 300,
-        		maxFavoriteApps: '',
-        		authorizedApplicationsListMsg: this.$t("appCenter.userSetup.loading")
+        	  authorizedApplicationsList: [],
+			  showPaginator: false,
+			  currentPage: 1,
+			  searchText: '',
+			  searchApp: '',
+			  searchDelay: 300,
+			  maxFavoriteApps: '',
+			  authorizedApplicationsListMsg: this.$t("appCenter.userSetup.loading")
         	}
         },
 
