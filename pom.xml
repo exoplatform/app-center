@@ -30,7 +30,7 @@
 		<module>app-center-packaging</module>
 	</modules>
 	<properties>
-		<org.exoplatform.platform.version>5.3.0</org.exoplatform.platform.version>
+		<org.exoplatform.platform.version>6.0.x-dw-homepage-SNAPSHOT</org.exoplatform.platform.version>
 		<com.github.eirslett.frontend.version>1.6</com.github.eirslett.frontend.version>
 	</properties>
 	<dependencyManagement>
