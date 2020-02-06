@@ -52,7 +52,7 @@
                             class="d-flex flex justify-center mx-2">
                         <a
                                 class="primary--text seeAllApplicationsBtn"
-                                :href="appCenterUserLink"
+                                :href="appCenterUserSetupLink"
                                 >{{ $t('appCenter.appLauncher.drawer.viewAll') }}</a>
                     </v-card>
                 </v-row>
@@ -67,7 +67,7 @@
             return {
                 appLauncherDrawer : null,
                 favoriteApplicationsList: [],
-                appCenterUserLink: ''
+                appCenterUserSetupLink: ''
             }
         },
         created() {
@@ -75,7 +75,7 @@
             window.require(['SHARED/appCenterBundle'], function (appCenterBundle) {
                 appCenterBundle.init();
             });
-            this.appCenterUserLink = eXo.env.portal.context + "/" + eXo.env.portal.portalName + "/appCenterUserSetup";
+            this.appCenterUserSetupLink = eXo.env.portal.context + "/" + eXo.env.portal.portalName + "/appCenterUserSetup";
         },
         methods : {
             toggleDrawer() {
