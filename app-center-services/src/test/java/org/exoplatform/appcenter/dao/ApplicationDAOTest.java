@@ -258,7 +258,7 @@ public class ApplicationDAOTest {
 
   @Test
   public void testGetMandatoryApps() {
-    ApplicationDAO applicationDAO = ExoContainerContext.getService(ApplicationDAO.class);
+    ApplicationDAO applicationDAO = ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ApplicationDAO.class);
     assertNotNull(applicationDAO);
 
     ApplicationEntity applicationEntity1 = new ApplicationEntity(null,

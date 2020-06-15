@@ -314,7 +314,7 @@ public class ApplicationCenterStorageTest {
 
   @Test
   public void testUpdateApplicationFavoriteOrder() throws Exception {
-    ApplicationCenterStorage applicationCenterStorage = ExoContainerContext.getService(ApplicationCenterStorage.class);
+    ApplicationCenterStorage applicationCenterStorage = ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ApplicationCenterStorage.class);
     assertNotNull(applicationCenterStorage);
 
     Application application = new Application(null,
@@ -403,7 +403,7 @@ public class ApplicationCenterStorageTest {
 
   @Test
   public void testGetMandatoryApplicationsByUser() throws Exception {
-    ApplicationCenterStorage applicationCenterStorage = ExoContainerContext.getService(ApplicationCenterStorage.class);
+    ApplicationCenterStorage applicationCenterStorage = ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ApplicationCenterStorage.class);
     assertNotNull(applicationCenterStorage);
 
     try {
