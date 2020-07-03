@@ -158,7 +158,7 @@ public class ApplicationDAOTest {
 
   @Test
   public void testGetApplicationByTitle() {
-    ApplicationDAO applicationDAO = ExoContainerContext.getService(ApplicationDAO.class);
+    ApplicationDAO applicationDAO = ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ApplicationDAO.class);
     assertNotNull(applicationDAO);
     FavoriteApplicationDAO favoriteApplicationDAO = ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(FavoriteApplicationDAO.class);
     assertNotNull(favoriteApplicationDAO);
