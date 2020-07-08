@@ -49,6 +49,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <com.github.eirslett.frontend.version>1.6</com.github.eirslett.frontend.version>
     <node.version>v10.4.1</node.version>
     <npm.version>6.1.0</npm.version>
+    <jersey.version>1.12</jersey.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -94,6 +95,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 				<version>${project.version}</version>
 				<scope>provided</scope>
 				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-client</artifactId>
+				<version>${jersey.version}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
