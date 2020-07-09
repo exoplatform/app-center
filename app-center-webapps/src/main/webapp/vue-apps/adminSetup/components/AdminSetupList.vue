@@ -256,6 +256,7 @@ export default {
   },
 
   created() {
+    $('body').prepend('<div class="VuetifyApp"><div data-app="true" class="v-application transparent theme--light" id="vuetify-apps"></div></div>');
     this.getApplicationsList();
     this.getAppGeneralSettings();
     $(document).on('keydown', (event) => {
