@@ -399,7 +399,7 @@ export default {
       }
       this.getGroups(query).then(data => {
         const groups = [];
-        for(const group of data.entities) {
+        for(const group of data) {
           groups.push({
             avatarUrl: null,
             text: `*:${group.id}`,
