@@ -129,7 +129,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 @change="handleDefaultAppImageFileUpload()"
               >
             </div>
-            <div v-show="!defaultAppImageViewMode && defaultAppImage.fileName && defaultAppImage.fileBody">
+            <div v-show="!defaultAppImageViewMode && defaultAppImage.fileName">
               <span>
                 {{ defaultAppImage.fileName }}
               </span>
@@ -318,12 +318,15 @@ export default {
       this.defaultAppImage.fileBody = '';
       this.defaultAppImage.invalidSize = false;
       this.defaultAppImage.invalidImage = false;
+      if (this.$refs.defaultAppImageFile.files.length > 0) {
+        // remove file from the input
+        document.getElementById('defaultAppImageFile').value = '';
+      }
     },
 
     resetDefaultAppImage() {
       this.defaultAppImageViewMode = true;
-      this.defaultAppImage.invalidSize = false;
-      this.defaultAppImage.invalidImage = false;
+      this.removeDefaultAppImageFile();
       this.getAppGeneralSettings();
     },
     increment() {
