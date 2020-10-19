@@ -37,7 +37,9 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 v-model="searchText"
                 :placeholder="`${$t('appCenter.adminSetupList.filter')} ...`"
                 prepend-inner-icon="mdi-filter"
+                append-outer-icon="mdi-close"
                 hide-details
+                @click:append-outer="closeSearch"
               ></v-text-field>
             </v-col>
           </v-row>
@@ -79,26 +81,28 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     <div 
                       :title="authorizedApp.title.length > 10 ? authorizedApp.title : ''"
                       class="appTitle"
+                      :class="!authorizedApp.helpPageURL ? 'noHelpPage' : ''"
                     >
                       {{ authorizedApp.title }}
                     </div>
                   </h5>
                 </a>
               </v-list-item-content>
-              <v-list-item-action class="appHelp">
-                <v-btn
-                  v-if="authorizedApp.helpPageURL"
-                  small
-                  icon
-                  @click="navigateTo(authorizedApp.helpPageURL)"
-                >
-                  <v-icon 
-                    x-small
+              <template v-if="authorizedApp.helpPageURL">
+                <v-list-item-action class="appHelp">
+                  <v-btn
+                    small
+                    icon
+                    @click="navigateTo(authorizedApp.helpPageURL)"
                   >
-                    mdi-help
-                  </v-icon>
-                </v-btn>
-              </v-list-item-action>
+                    <v-icon
+                      x-small
+                    >
+                      mdi-help
+                    </v-icon>
+                  </v-btn>
+                </v-list-item-action>
+              </template>
             </v-list-item>
             <v-card-text class="userAppDescription">
               <div 
@@ -211,11 +215,13 @@ export default {
   watch: {
     searchText() {
       if (this.searchText && this.searchText.trim().length) {
+        document.getElementsByClassName('v-input__icon--append-outer')[0].style.display='block';
         clearTimeout(this.searchApp);
         this.searchApp = setTimeout(() => {
           this.searchAuthorizedApplicationsList();
         }, this.searchDelay);
       } else if (!this.searchText || this.searchText.length !== this.searchText.split(' ').length - 1) {
+        document.getElementsByClassName('v-input__icon--append-outer')[0].style.display='none';
         this.getAuthorizedApplicationsList(false, true);
       }
     }
@@ -226,6 +232,10 @@ export default {
     this.getAuthorizedApplicationsList();
   },
   methods: {
+    closeSearch(){
+      document.getElementsByClassName('v-input__icon--append-outer')[0].style.display='none';
+      this.searchText='';
+    },
     detectMobile() {
       const toMatch = [
         /Android/i,
