@@ -452,8 +452,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         padding: 12px;
 
         .authorizedApplication {
-          padding: 10px;
-          padding-bottom: 5px;
+          padding: 10px 10px 5px;
+          min-width: 200px;
           flex: 0 1 ~"calc(25% - 38px)";
           margin: 8px;
           border-radius: 6px!important;
@@ -488,8 +488,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               width: 100%;
               padding: 0;
               margin-bottom: 6px;
+              .image a img {
+                vertical-align: inherit;
+              }
               .v-list-item__content {
-                overflow: unset;
+                display: block;
                 padding: 0;
                 height: 45px;
               }
@@ -579,6 +582,9 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
       }
     }
   }
+  .userFavoriteApplicationsContainer{
+    min-width: 250px;
+  }
 }
 .userFavoriteApplicationsContainer {
   border-radius: 4px;
@@ -602,6 +608,13 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
       margin-bottom: 15px;
       width: 100%;
       border-radius: 8px!important;
+      .v-list-item{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        .v-list-item__content{
+          display: block;
+        }
+      }
       .favoriteAppImage {
         .default {
           border-radius: unset;
@@ -660,71 +673,30 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 123px;
   }
-  .applicationHeader {
-    .appTitle {
-      max-width: 3.5vw!important;
-    }
-    .noHelpPage {
-      max-width: 9.5vw!important;
-    }
-  }
-  .userFavoriteApplicationsContainer {
-    .favAppTitle {
-      max-width: 4vw!important;
-    }
-  }
 }
 @media screen and (min-width: 800px) {
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 131px;
-  }
-  .userFavoriteApplicationsContainer {
-    .favAppTitle {
-      max-width: 5vw!important;
-    }
   }
 }
 @media screen and (min-width: 844px) {
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 142px;
   }
-  .userFavoriteApplicationsContainer {
-    .favAppTitle {
-      max-width: 6vw!important;
-    }
-  }
 }
 @media screen and (min-width: 888px) {
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 153px;
-  }
-  .userFavoriteApplicationsContainer {
-    .favAppTitle {
-      max-width: 7vw!important;
-    }
   }
 }
 @media screen and (min-width: 944px) {
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 118px;
   }
-  .userFavoriteApplicationsContainer {
-    .favAppTitle {
-      max-width: 8vw!important;
-    }
-  }
 }
 @media screen and (min-width: 1024px) {
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 133px;
-  }
-  .applicationHeader {
-    .appTitle {
-      max-width: 4.4vw!important;
-    }
-    .noHelpPage {
-      max-width: 7.4vw!important;
-    }
   }
   .userFavoriteApplicationsContainer {
     .favAppTitle {
@@ -736,14 +708,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 166px;
   }
-  .applicationHeader {
-    .appTitle {
-      max-width: 7vw!important;
-    }
-    .noHelpPage {
-      max-width: 10vw!important;
-    }
-  }
   .userFavoriteApplicationsContainer {
     .favAppTitle {
       max-width: 11vw!important;
@@ -754,14 +718,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 175px;
   }
-  .applicationHeader {
-    .appTitle {
-      max-width: 7.2vw!important;
-    }
-    .noHelpPage {
-      max-width: 9.2vw!important;
-    }
-  }
   .userFavoriteApplicationsContainer {
     .favAppTitle {
       max-width: 12vw!important;
@@ -771,14 +727,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 @media screen and (min-width: 1400px) {
   .authorizedApplicationsContainer .authorizedApplication {
     min-width: 194px;
-  }
-  .applicationHeader {
-    .appTitle {
-      max-width: 7.3vw!important;
-    }
-    .noHelpPage {
-      max-width: 10vw!important;
-    }
   }
   .userFavoriteApplicationsContainer {
     .favAppTitle {
@@ -802,11 +750,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         flex: 0 1 41%!important;
         padding: 20px 15px!important;
 
-        .applicationHeader {
-          .appTitle {
-            max-width: 40.3vw!important;
-          }
-        }
       }
     }
     .userFavoriteApplications {
